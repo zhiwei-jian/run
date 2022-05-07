@@ -17,7 +17,7 @@ export class OverviewComponent implements OnInit {
   }
 
   onSave() {
-    this.service.getR().subscribe((response: any) => {
+    this.service.getHello().subscribe((response: any) => {
       this.mySite = response;
     });
   }
