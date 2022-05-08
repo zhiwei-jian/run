@@ -8,9 +8,11 @@ export class GridDataService {
   // headers : Headers;
   constructor(private http: HttpClient) { }
 
-  getHello(){
+  getHello(userName: string){
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
-    return this.http.get(`/api/hello?name=Lina`,{ headers, responseType: 'text'});
+    let httpParams = new HttpParams();
+    httpParams.set('name', userName);
+    return this.http.get(`/api/hello?name=` + userName,{headers, responseType: 'text'});
   }
 
   getR(){

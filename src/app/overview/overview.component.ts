@@ -10,16 +10,20 @@ import { GridDataService } from '../service/grid-data.service';
 })
 export class OverviewComponent implements OnInit {
   title = 'Overview';
-  mySite = 'Overview';
+  mySite = '';
+  keyboardValues = '';
   constructor(private service : GridDataService) { }
   // constructor() { }
   ngOnInit(): void {
   }
 
   onSave() {
-    this.service.getHello().subscribe((response: any) => {
+    this.service.getHello(this.keyboardValues).subscribe((response: any) => {
       this.mySite = response;
     });
   }
 
+  onKey(event: KeyboardEvent) {
+    this.keyboardValues = (<HTMLInputElement>event.target).value;
+  }
 }
