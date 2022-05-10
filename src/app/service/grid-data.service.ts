@@ -12,10 +12,7 @@ export class GridDataService {
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
     let httpParams = new HttpParams();
     httpParams.set('name', userName);
-    return this.http.get(`/api/hello?name=` + userName,{headers, responseType: 'text'});
+    return this.http.get(`/api/hello?name=` + userName, {headers, responseType: 'text'});
   }
 
-  getR(){
-    return this.http.get('/ciq/aradapter/api/resource');
-  }
 }

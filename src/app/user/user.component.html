@@ -1,2 +1,39 @@
 <h1>{{title}}</h1>
-<h2>我喜欢的商品: {{mySite}}</h2>
+<h2>User Name: {{userName}}</h2>
+
+<div>
+    <label>
+        <span class="required-icon">* </span>
+        <span>User Name </span>
+    </label>
+    <br/>
+    <input placeholder="User Name" (keyup)="onKey($event)">
+    <p>{{userName}}</p>
+</div>
+<div>
+    <label>
+        <span class="required-icon">* </span>
+        <span>Gender </span>
+    </label>
+    <br/>
+    <select (selectionChange)="onPortalSelected($event)">
+        <option *ngFor="let item of genderList" [value]="item">{{item}}</option>
+    </select>
+    <!-- <mat-form-field>
+        <mat-label>Favorite food</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field> -->
+    <br/>
+</div>
+<div>
+    <label>
+        <span>Comments </span>
+    </label>
+    <br />
+    <textarea placeholder="Comments"></textarea>
+</div>
+<button (click)="onSave()">Save</button>
