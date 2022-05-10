@@ -4,16 +4,41 @@
 <div>
     <label>
         <span class="required-icon">* </span>
-        <span>User Name </span>
+        <span>User Name</span>
     </label>
     <br/>
-    <input placeholder="User Name" (keyup)="onKey($event)">
-    <p>{{userName}}</p>
+    <!-- <textarea matInput placeholder="aaa" i18n-placeholder [(ngModel)]="userName"></textarea> -->
+    <input matInput placeholder="User Name" [(ngModel)]="userName">
+    <!-- <p>{{userName}}</p> -->
 </div>
 <div>
     <label>
         <span class="required-icon">* </span>
-        <span>Gender </span>
+        <span>Age</span>
+    </label>
+    <br/>
+    <input matInput placeholder="Age" [(ngModel)]="age">
+</div>
+<div>
+    <label>
+        <span class="required-icon">* </span>
+        <span>NickName</span>
+    </label>
+    <br/>
+    <input matInput placeholder="NickName" [(ngModel)]="nickName">
+</div>
+<div>
+    <label>
+        <span class="required-icon">* </span>
+        <span>Hobby</span>
+    </label>
+    <br/>
+    <input matInput placeholder="Hobby" [(ngModel)]="hobby">
+</div>
+<div>
+    <label>
+        <span class="required-icon">* </span>
+        <span>Gender</span>
     </label>
     <br/>
     <select (selectionChange)="onPortalSelected($event)">
@@ -29,9 +54,10 @@
     </mat-form-field> -->
     <br/>
 </div>
+
 <div>
     <label>
-        <span>Comments </span>
+        <span>Comments</span>
     </label>
     <br />
     <textarea placeholder="Comments"></textarea>

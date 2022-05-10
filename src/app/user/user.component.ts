@@ -19,31 +19,43 @@ interface Food {
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit, OnDestroy {
-  title = 'User';
-  userName = '';
+  
+  constructor(private service : GridDataService) { }
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+  userName: string;
+
+  nickName: string;
+
+  hobby: string;
+
+  age: BigInteger;
+
+  title = 'User';
+
+  // foods: Food[] = [
+  //   {value: 'steak-0', viewValue: 'Steak'},
+  //   {value: 'pizza-1', viewValue: 'Pizza'},
+  //   {value: 'tacos-2', viewValue: 'Tacos'},
+  // ];
 
   genderList = ['Male','Female'];
-  constructor(private service : GridDataService) { }
+
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
   }
-  // constructor() { }
+
   ngOnInit(): void {
 
   }
   
   onSave() {
+    console.log(this.userName);
+    console.log(this.nickName);
+    console.log(this.hobby);
+    console.log(this.age);
     this.service.getHello(this.userName).subscribe((response: any) => {
       this.userName = response;
     });
-
-    this.genderList=['F','M'];
   }
 
   onKey(event: KeyboardEvent) {
@@ -51,6 +63,8 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   onPortalSelected(event: MatSelectChange | string) {
+    let a = event.toString;
+    console.log(a);
     this.genderList=['F','M'];
   }
 }
