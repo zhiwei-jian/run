@@ -15,4 +15,8 @@ export class GridDataService {
     return this.http.get(`/api/hello?name=` + userName, {headers, responseType: 'text'});
   }
 
+  addUser(userList){
+    console.log(userList);
+  }
+
 }

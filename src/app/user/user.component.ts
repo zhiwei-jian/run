@@ -7,10 +7,30 @@ import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ThrowStmt } from '@angular/compiler';
 
 interface Food {
   value: string;
   viewValue: string;
+}
+
+
+/**
+ * Request item model
+ */
+ interface UserInfo {
+  /** Name */
+  name: string;
+  /** Nick Name */
+  nickName: string;
+  /** Age */
+  age: BigInteger;
+  /** Hobby */
+  hobby: string;
+  /** Gender */
+  gender: string;
+  /** Email address */
+  email: string;
 }
 
 @Component({
@@ -21,6 +41,8 @@ interface Food {
 export class UserComponent implements OnInit, OnDestroy {
   
   constructor(private service : GridDataService) { }
+
+  userList = [];
 
   userName: string;
 
@@ -53,9 +75,23 @@ export class UserComponent implements OnInit, OnDestroy {
     console.log(this.nickName);
     console.log(this.hobby);
     console.log(this.age);
+
+    this.userList = [];
+    const userInfo: UserInfo = {
+      name: this.userName,
+      nickName: this.nickName,
+      age: this.age,
+      hobby: this.hobby,
+      gender: null,
+      email: null,
+    };
+    this.userList.push(userInfo);
+
     this.service.getHello(this.userName).subscribe((response: any) => {
       this.userName = response;
     });
+
+    this.service.addUser(this.userList);
   }
 
   onKey(event: KeyboardEvent) {
