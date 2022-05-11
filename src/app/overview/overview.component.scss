@@ -1,0 +1,44 @@
+.request-container {
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 1rem 1rem 0 1rem;
+
+  label {
+    margin-right: 2rem;
+  }
+
+  .title {
+    margin-bottom: 1rem;
+
+    label {
+      font-size: 1.5rem;
+    }
+  }
+
+  .required-icon {
+    color: #ff0000;
+  }
+
+  .justification {
+    display: flex;
+    width: 60%;
+
+    label {
+      align-items: center;
+      display: flex;
+      margin-right: 1.25rem;
+    }
+
+    .justification-content {
+      width: 100%;
+
+      textarea {
+        min-height: 3rem;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-option-text i {
+  margin-left: 1rem;
+}
