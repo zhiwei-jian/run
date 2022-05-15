@@ -8,7 +8,7 @@ export class GridDataService {
   // headers : Headers;
   constructor(private http: HttpClient) { }
 
-  getHello(userName: string){
+  getHello(userName: string) {
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
     let httpParams = new HttpParams();
     httpParams.set('name', userName);

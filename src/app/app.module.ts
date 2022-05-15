@@ -8,6 +8,7 @@ import { GridDataService } from './service/grid-data.service'
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
     HttpClientModule,
     AppRoutingModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [GridDataService],
   bootstrap: [AppComponent],

@@ -1,12 +1,44 @@
-<h1>{{title}}</h1>
-<h2>我喜欢的商品: {{mySite}}</h2>
+<h2 [style.color]="fontColor">Website Introduction</h2>
+<p [style.color]="fontColor">
+    {{introduction}}
+</p>
 <div>
-    <textarea placeholder="Input the justification here"></textarea>
+    <input matInput placeholder="Front Color" [(ngModel)]="inputColor">
     
-    
+    <!-- <p
+        [id]="sayHelloId"
+        [style.color]="fontColor">
+        You can set my color in the component!
+    </p> -->
+
+    <button
+        type="button"
+        [disabled]="canClick"
+        (click)="setColor()">
+        Set Color
+    </button>
 </div>
+
 <div>
     <input (keyup)="onKey($event)">
+    <button
+    type="button"
+    [disabled]="canClick"
+    (click)="sayMessage()">
+    Alert
+    </button>
     <p>{{keyboardValues}}</p>
 </div>
 <button (click)="onSave()">Save</button>
+<!--Test ngIf-->
+<button type="button" (click)="onEditClick()">Make text editable!</button>
+ 
+<div *ngIf="canEdit; else noEdit">
+    <p>You can edit the following paragraph.</p>
+</div>
+ 
+<ng-template #noEdit>
+    <p>The following paragraph is read only. Try clicking the button!</p>
+</ng-template>
+ 
+<p [contentEditable]="canEdit">{{ message }}</p>
