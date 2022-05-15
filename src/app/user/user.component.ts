@@ -63,7 +63,7 @@ export class UserComponent implements OnInit, OnDestroy {
   genderList = ['Male','Female'];
 
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   ngOnInit(): void {
