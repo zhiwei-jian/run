@@ -10,7 +10,7 @@ const routes: Routes = [
     path: 'user',
     children: [
       {
-        path: 'details',
+        path: 'overview',
         loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
       },
   //     {
@@ -27,18 +27,15 @@ const routes: Routes = [
   //           (m) => m.CreateRequestModule
   //         ),
   //     },
-  //     {
-  //       path: 'approvals',
-  //       loadChildren: () => import('./access-request/approvals/approvals.module').then((m) => m.ApprovalsModule),
-  //     },
-  //     {
-  //       path: 'audit-log',
-  //       loadChildren: () => import('./access-request/audit-log/audit-log.module').then((m) => m.AuditLogModule),
-  //     },
-  //     {
-  //       path: 'access-list',
-  //       loadChildren: () => import('./access-request/access-list/access-list.module').then((m) => m.AccessListModule),
-  //     },
+    ],
+  },
+  {
+    path: 'product',
+    children: [
+      {
+        path: 'overview',
+        loadChildren: () => import('./product/product.module').then((m) => m.ProductModule),
+      },
     ],
   },
 ]

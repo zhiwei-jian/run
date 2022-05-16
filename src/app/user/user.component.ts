@@ -9,11 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ThrowStmt } from '@angular/compiler';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 
 /**
  * Request item model
@@ -53,12 +48,6 @@ export class UserComponent implements OnInit, OnDestroy {
   age: BigInteger;
 
   title = 'User';
-
-  // foods: Food[] = [
-  //   {value: 'steak-0', viewValue: 'Steak'},
-  //   {value: 'pizza-1', viewValue: 'Pizza'},
-  //   {value: 'tacos-2', viewValue: 'Tacos'},
-  // ];
 
   genderList = ['Male','Female'];
 
