@@ -13,7 +13,7 @@ import { ThrowStmt } from '@angular/compiler';
 /**
  * Request item model
  */
- interface UserInfo {
+ export interface UserInfo {
   /** Name */
   name: string;
   /** Nick Name */
@@ -22,10 +22,10 @@ import { ThrowStmt } from '@angular/compiler';
   age: BigInteger;
   /** Hobby */
   hobby: string;
-  /** Gender */
-  gender: string;
-  /** Email address */
-  email: string;
+  // /** Gender */
+  // gender: string;
+  // /** Email address */
+  // email: string;
 }
 
 @Component({
@@ -71,16 +71,16 @@ export class UserComponent implements OnInit, OnDestroy {
       nickName: this.nickName,
       age: this.age,
       hobby: this.hobby,
-      gender: null,
-      email: null,
+      // gender: null,
+      // email: null,
     };
     this.userList.push(userInfo);
 
-    this.service.getHello(this.userName).subscribe((response: any) => {
-      this.userName = response;
-    });
+    // this.service.getHello(this.userName).subscribe((response: any) => {
+    //   this.userName = response;
+    // });
 
-    this.service.addUser(this.userList);
+    this.service.addUser(this.userList).subscribe();
   }
 
   onKey(event: KeyboardEvent) {
