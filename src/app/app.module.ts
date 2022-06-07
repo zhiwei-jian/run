@@ -26,7 +26,8 @@ import { ShippingComponent } from './shipping/shipping.component';
     AppRoutingModule,
     MatFormFieldModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [GridDataService, CartService],
   bootstrap: [AppComponent],
