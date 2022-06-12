@@ -9,10 +9,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UserComponent } from './user.component';
-import { UserRoutes } from './user-routing.module'
+import { UserRoutes } from './user-routing.module';
+import { UserListComponent } from './user-list/user-list.component'
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
-  declarations: [UserComponent],
+  declarations: [UserComponent, UserListComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,7 +25,8 @@ import { UserRoutes } from './user-routing.module'
     MatInputModule,
     MatTooltipModule,
     UserRoutes,
-    MatSelectModule
+    MatSelectModule,
+    AgGridModule
   ]
 })
 export class UserModule { }
