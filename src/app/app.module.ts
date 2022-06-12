@@ -12,6 +12,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ShippingComponent } from './shipping/shipping.component';
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
+    AgGridModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule
   ],
   providers: [GridDataService, CartService],

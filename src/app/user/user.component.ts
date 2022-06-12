@@ -19,7 +19,7 @@ import { ThrowStmt } from '@angular/compiler';
   /** Nick Name */
   nickName: string;
   /** Age */
-  age: BigInteger;
+  age: Number;
   /** Hobby */
   hobby: string;
   // /** Gender */
@@ -69,7 +69,7 @@ export class UserComponent implements OnInit, OnDestroy {
     const userInfo: UserInfo = {
       name: this.userName,
       nickName: this.nickName,
-      age: this.age,
+      age: Number(this.age),
       hobby: this.hobby,
       // gender: null,
       // email: null,

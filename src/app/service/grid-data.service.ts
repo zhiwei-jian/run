@@ -31,6 +31,10 @@ export class GridDataService {
     return this.http.post(`/api/user`, userList, {params});
   }
 
+  getUsers() {
+    return this.http.get<any[]>(`/api/users`);
+  }
+
   setProducts(products : Product[]) {
     this.products = products;
   }
