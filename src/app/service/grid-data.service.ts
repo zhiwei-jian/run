@@ -31,6 +31,11 @@ export class GridDataService {
     return this.http.post(`/api/user`, userList, {params});
   }
 
+  deleteUsers(userList: UserInfo[]) {
+    console.log(userList);
+    return this.http.request('delete', `/api/users`, { body: userList });
+  }
+
   getUsers() {
     return this.http.get<any[]>(`/api/users`);
   }
