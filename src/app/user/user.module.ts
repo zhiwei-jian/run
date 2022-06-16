@@ -12,9 +12,10 @@ import { UserComponent } from './user.component';
 import { UserRoutes } from './user-routing.module';
 import { UserListComponent } from './user-list/user-list.component'
 import { AgGridModule } from 'ag-grid-angular';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
-  declarations: [UserComponent, UserListComponent],
+  declarations: [UserComponent, UserListComponent, AddUserComponent],
   imports: [
     CommonModule,
     FormsModule,

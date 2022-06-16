@@ -18,19 +18,20 @@ export class UserListComponent implements OnInit {
 
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
+    {
+      field: 'id',
+      minWidth: 180,
+      headerCheckboxSelection: true,
+      headerCheckboxSelectionFilteredOnly: true,
+      checkboxSelection: true,
+    },
     { field: 'name'},
     { field: 'age'},
     { field: 'nickName' },
     { field: 'hobby' }
   ];
 
-  // rowData = [
-  //   { make: 'Toyota', model: 'Celica', price: 35000 },
-  //   { make: 'Ford', model: 'Mondeo', price: 32000 },
-  //   { make: 'Porsche', model: 'Boxster', price: 72000 }
-  // ];
-
-    rowData = [];
+  rowData = [];
   // DefaultColDef sets props common to all Columns
   public defaultColDef: ColDef = {
     sortable: true,
@@ -61,6 +62,7 @@ export class UserListComponent implements OnInit {
       this.rowData = users;
     });
 
+    
     console.log(this.rowData$);
   }
   
@@ -73,6 +75,11 @@ export class UserListComponent implements OnInit {
   // Example using Grid's API
   clearSelection(): void {
     this.agGrid.api.deselectAll();
+  }
+
+  deleteUser(): void {
+    let selectedUsers : UserInfo[] = <UserInfo[]>this.agGrid.api.getSelectedRows();
+    this.service.deleteUsers(selectedUsers).subscribe();
   }
 
 }
