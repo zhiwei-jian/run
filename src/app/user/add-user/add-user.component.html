@@ -1,1 +1,27 @@
-<p>add-user works!</p>
+<h1 mat-dialog-title>Add New User</h1>
+<div mat-dialog-content>
+   <!-- <span>User Name</span> -->
+   <mat-form-field appearance="fill">
+    <mat-label>User Name</mat-label>
+    <input matInput [(ngModel)]="userName">
+  </mat-form-field>
+  <br/>
+  <mat-form-field appearance="fill">
+    <mat-label>Age</mat-label>
+    <input matInput [(ngModel)]="age">
+  </mat-form-field>
+  <br/>
+  <mat-form-field appearance="fill">
+    <mat-label>NickName</mat-label>
+    <input matInput [(ngModel)]="nickName">
+  </mat-form-field>
+  <br/>
+  <mat-form-field appearance="fill">
+    <mat-label>Hobby</mat-label>
+    <input matInput [(ngModel)]="hobby">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="submit()">Submit</button>
+</div>

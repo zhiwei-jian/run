@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Remove below User</h1>
+
+<!-- <div *ngFor="let user of selectedUsers">
+    <span>{{ user.id }} </span>
+    <span>{{ user.name }}   </span>
+    <span>{{ user.nickName }}   </span>
+    <span>{{ user.age }}</span>
+</div> -->
+<div class="selected-list-container">
+  <table class="clarity-table">
+    <thead>
+      <tr>
+        <th scope="col">User Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Nick Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Hobby</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of selectedUsers">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.nickName }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.hobby }}</td>
+        <!-- <td i18n><button mat-button color="primary" class="mat-small-button" (click)="removeAccess(item)">Remove</button></td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="confirm()">Confirm</button>
+</div>

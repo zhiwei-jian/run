@@ -12,16 +12,19 @@ import { UserComponent } from './user.component';
 import { UserRoutes } from './user-routing.module';
 import { UserListComponent } from './user-list/user-list.component'
 import { AgGridModule } from 'ag-grid-angular';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AddUserComponent } from './add-user/add-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 
 @NgModule({
-  declarations: [UserComponent, UserListComponent, AddUserComponent],
+  declarations: [UserComponent, UserListComponent, AddUserComponent, DeleteUserComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatIconModule,
     MatInputModule,
     MatTooltipModule,
