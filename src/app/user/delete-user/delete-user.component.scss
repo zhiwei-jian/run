@@ -1,0 +1,14 @@
+.selected-list-container {
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .clarity-table {
+      width: 100%;
+
+      .action-column-header {
+        padding-left: 0.5rem;
+      }
+    }
+  }

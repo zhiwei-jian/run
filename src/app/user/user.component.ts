@@ -1,13 +1,7 @@
 
 import { GridDataService } from '../service/grid-data.service';
-import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
-import { SelectionModel } from '@angular/cdk/collections';
 import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ThrowStmt } from '@angular/compiler';
 
 
 /**
@@ -93,4 +87,3 @@ export class UserComponent implements OnInit, OnDestroy {
     this.genderList=['F','M'];
   }
 }
-

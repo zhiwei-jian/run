@@ -1,10 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { GridDataService } from 'src/app/service/grid-data.service';
 import { UserInfo } from '../user.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AddUserComponent } from '../add-user/add-user.component';
+import { DeleteUserComponent } from '../delete-user/delete-user.component';
 
 @Component({
   selector: 'app-user-list',
@@ -44,12 +46,15 @@ export class UserListComponent implements OnInit {
   // For accessing the Grid's API
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
-  constructor(private service: GridDataService, private http: HttpClient) {}
+  constructor(private service: GridDataService, private dialog: MatDialog) {}
 
   // Example load data from sever
   onGridReady(params: GridReadyEvent) {
-    // this.rowData = this.service.getUsers();
-    
+    this.setUsers();
+    console.log(this.rowData);
+  }
+
+  setUsers() : void {
     this.service.getUsers().subscribe((data: any[]) => {
       // let jsonObj: any = JSON.parse(String(data)); // string to generic object first
       let users: UserInfo[] = <UserInfo[]>data;
@@ -61,12 +66,8 @@ export class UserListComponent implements OnInit {
       console.log(users);
       this.rowData = users;
     });
-
-    
-    console.log(this.rowData$);
   }
   
-
   // Example of consuming Grid Event
   onCellClicked( e: CellClickedEvent): void {
     console.log('cellClicked', e);
@@ -78,8 +79,32 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(): void {
-    let selectedUsers : UserInfo[] = <UserInfo[]>this.agGrid.api.getSelectedRows();
-    this.service.deleteUsers(selectedUsers).subscribe();
+    let selectedUsers = <UserInfo[]>this.agGrid.api.getSelectedRows();
+    if(selectedUsers == null || selectedUsers.length == 0) {
+      window.alert("Please select users!");
+      return;
+    }
+
+    this.dialog.open(DeleteUserComponent, {
+      restoreFocus: false,
+      width: '500px',
+      data: {users: selectedUsers},
+    }).afterClosed().subscribe(() => {
+      this.setUsers();
+    });
+
+    // this.service.deleteUsers(selectedUsers).subscribe();
+  }
+
+  addUser(): void {
+    const addUserDialogRef = this.dialog.open(AddUserComponent, {
+      restoreFocus: false,
+      width: '500px',
+    });
+
+    addUserDialogRef.afterClosed().subscribe(()=>{
+      this.setUsers();
+    });
   }
 
 }
